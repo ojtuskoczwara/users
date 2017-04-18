@@ -16,7 +16,7 @@ public class StudentDAOImpl implements StudentDAO {
         PreparedStatement statement = null;
         try {
             //Connection
-            connection = SingletonDBConnection.getInstance().getConnection();
+            connection = SingletonDBConnection.getInstance().connect();
             //Preparation
             statement = connection.prepareStatement(sql);
             statement.setInt(1, student.getStudentId());
@@ -44,7 +44,7 @@ public class StudentDAOImpl implements StudentDAO {
         ResultSet resultSet = null;
         try {
             //Connection
-            connection = SingletonDBConnection.getInstance().getConnection();
+            connection = SingletonDBConnection.getInstance().connect();
             //Preparation
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, studentId);

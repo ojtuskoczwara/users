@@ -16,23 +16,22 @@ public class SingletonDBConnection {
     public static SingletonDBConnection getInstance() {
         return instance;
     }
-
+/*
     public Connection getConnection() {
         return con;
     }
-
-    public void connect() throws Exception {
+*/
+    public Connection connect() throws Exception {
         if (con != null)
-            return;
+            return con;
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new Exception("Driver not found");
         }
-
-        String url = String.format("jdbc:mysql://localhost:3306/mojaBaza");
-
+        String url = String.format("jdbc:mysql://localhost:3306/mojaBaza"+"?verifyServerCertificate=false&useSSL=true");
         con = DriverManager.getConnection(url,"tutorial","password");
+        return con;
     }
 
     public void disconnect() {

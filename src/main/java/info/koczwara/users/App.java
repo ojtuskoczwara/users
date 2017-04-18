@@ -8,12 +8,13 @@ import java.sql.SQLException;
 public class App {
     public static void main(String[] args) throws SQLException {
 
-        wyswietlanie(1);
+        //dodawanieStudenta();
+        wyswietlanie(8);
     }
 
     public static void dodawanieStudenta() {
         Student s = new Student();
-        s.setStudentId(1);
+        s.setStudentId(8);
         s.setImie("Adam");
         s.setNazwisko("Adgrus");
         s.setMiejscowosc("Krk");
