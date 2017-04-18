@@ -1,12 +1,8 @@
 package info.koczwara.users.Model;
 
-import info.koczwara.users.Connection.SingletonDBConnection;
 import java.sql.*;
 import java.util.List;
 
-/**
- * Created by Wojtek on 2017-04-18.
- */
 public class StudentDAOImpl implements StudentDAO {
 
     public void addStudent(Student student) throws SQLException {
@@ -16,7 +12,11 @@ public class StudentDAOImpl implements StudentDAO {
         PreparedStatement statement = null;
         try {
             //Connection
-            connection = SingletonDBConnection.getInstance().getConnection();
+            Class.forName("com.mysql.jdbc.Driver");
+            String USER = "tutorial";
+            String PASSWORD = "password";
+            String URL = "jdbc:mysql://localhost:3306/mojaBaza?verifyServerCertificate=false&useSSL=true";
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
             //Preparation
             statement = connection.prepareStatement(sql);
             statement.setInt(1, student.getStudentId());
@@ -44,7 +44,11 @@ public class StudentDAOImpl implements StudentDAO {
         ResultSet resultSet = null;
         try {
             //Connection
-            connection = SingletonDBConnection.getInstance().getConnection();
+            Class.forName("com.mysql.jdbc.Driver");
+            String USER = "tutorial";
+            String PASSWORD = "password";
+            String URL = "jdbc:mysql://localhost:3306/mojaBaza?verifyServerCertificate=false&useSSL=true";
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
             //Preparation
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, studentId);
