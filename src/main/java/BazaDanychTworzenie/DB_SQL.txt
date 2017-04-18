@@ -1,0 +1,14 @@
+CREATE TABLE `Student2`
+(
+  `id_studenta` Int NOT NULL,
+  `imie` Varchar(20) NOT NULL,
+  `nazwisko` Varchar(20) NOT NULL,
+  `miejscowosc` Varchar(20) NOT NULL,
+  `ulica` Varchar(20) NOT NULL,
+  `nr_domu` Varchar(20) NOT NULL,
+  `id_klasy` Int NOT NULL
+)
+;
+
+ALTER TABLE `Student2` ADD  PRIMARY KEY (`id_studenta`)
+;
